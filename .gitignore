@@ -116,14 +116,3 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# idea
-/target/
-/.idea/
-/.settings/
-/.vscode/
-/bin/
-
-.classpath
-.project
-.settings
-.idea
