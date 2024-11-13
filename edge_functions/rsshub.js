@@ -20,7 +20,10 @@ export default async function (request) {
   if (request.method === "GET") {
     try {
       const url = new URL(request.url);
-      const newUrl = url.pathname.replace("/rsshub/", "/");
+      let newUrl = url.pathname.replace("/rsshub", "");
+      if (newUrl === "/") {
+        newUrl = "";
+      }
       console.log(`Process ${request.method} ${newUrl}...`);
       const res = await fetch("https://rsshub.app" + newUrl, {
         method: "GET",
@@ -28,6 +31,8 @@ export default async function (request) {
           "Content-type": "text/html, charset=utf-8, application/json, application/xml, application/rss+xml, application/atom+xml, application/rdf+xml, application/rss, application/atom, application/rdf",
         },
       });
+      res.data = res.data.replace(/https:\/\/rsshub.app/g, `https://rsshub.netlify.app`);
+      res.data = res.data.replace(/"\/(.*?)"(.*?)/g,`"https://rsshub.netlify.app/$1"$2`);
       return res;
     } catch (e) {
       console.error(e);

@@ -34,9 +34,9 @@ router.get(["/rsshub", /\/rsshub\/.*/], async (ctx, next) => {
   const url = ctx.request.url.replace("/rsshub", "");
   const res = await axios.get("https://rsshub.app" + url, reqBody);
   console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
-  res.data = res.data.replace(/https:\/\/rsshub.app/g,`http://${ctx.request.host}/rsshub`);
+  res.data = res.data.replace(/https:\/\/rsshub.app/g,`https://rsshub.netlify.app`);
   // replace example: "/logo.png" to "http://localhost:9999/rsshub/logo.png"
-  res.data = res.data.replace(/"\/(.*?)"(.*?)/g,`"http://${ctx.request.host}/rsshub/$1"$2`);
+  res.data = res.data.replace(/"\/(.*?)"(.*?)/g,`"https://rsshub.netlify.app/$1"$2`);
   ctx.body = res.data;
   await next();
 });
