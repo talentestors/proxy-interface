@@ -20,7 +20,7 @@ export default async function (request) {
   if (request.method === "GET") {
     try {
       const url = new URL(request.url);
-      const newUrl = url.pathname.replace("/rsshub", "");
+      const newUrl = url.pathname.replace("/rsshub/", "/");
       console.log(`Process ${request.method} ${newUrl}...`);
       const res = await fetch("https://rsshub.app" + newUrl, {
         method: "GET",
