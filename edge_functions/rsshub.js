@@ -24,25 +24,26 @@ export default async function (request) {
           "Content-type": "text/html",
         },
       });
-      const text = await res.text();
-      console.log("rsshub.app GET res: ", text);
-      const params = new URLSearchParams(text);
-      const resp = new Response(
-        JSON.stringify(
-          Array.from(params.entries()).reduce((obj, [key, value]) => {
-            obj[key] = value;
-            return obj;
-          }, {})
-        ),
-        {
-          status: 200,
-        }
-      );
-      resp.headers.set("Access-Control-Allow-Origin", "*");
-      resp.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-      resp.headers.set("Access-Control-Allow-Headers", "Content-Type");
-      resp.headers.set("Access-Control-Max-Age", `${86400 * 30}`);
-      return resp;
+      return res;
+      // const text = await res.text();
+      // console.log("rsshub.app GET res: ", text);
+      // const params = new URLSearchParams(text);
+      // const resp = new Response(
+      //   JSON.stringify(
+      //     Array.from(params.entries()).reduce((obj, [key, value]) => {
+      //       obj[key] = value;
+      //       return obj;
+      //     }, {})
+      //   ),
+      //   {
+      //     status: 200,
+      //   }
+      // );
+      // resp.headers.set("Access-Control-Allow-Origin", "*");
+      // resp.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+      // resp.headers.set("Access-Control-Allow-Headers", "Content-Type");
+      // resp.headers.set("Access-Control-Max-Age", `${86400 * 30}`);
+      // return resp;
     } catch (e) {
       console.error(e);
       throw e;
