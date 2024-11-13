@@ -30,7 +30,7 @@ export default async function (request) {
           "content-type": "text/html; charset=utf-8",
         },
       }).then((res) => res.text());
-      if((url == '' || url == '/') && res) {
+      if((url == '' || url == '/' || newUrl == '' || newUrl == '/') && res) {
         // replace example: "/logo.png" to "http://localhost:9999/rsshub/logo.png"
         res = res.replace(/"\/(.*?)"(.*?)/g,`"https://rsshub.netlify.app/$1"$2`);
       }
