@@ -24,7 +24,7 @@ router.post("/github_access_token", async (ctx, next) => {
 router.get(["/rsshub/", /\/rsshub\/.*\.png/], async (ctx, next) => {
   const reqBody = ctx.request.body;
   reqBody.referrer = "no-referrer";
-  const res = await axios.get("https://s21.ax1x.com/2024/11/14/pAgGXW9.png", reqBody)
+  const res = await axios.get("https://rsshub.netlify.app/img/logo.png", reqBody)
   ctx.body = res.data;
   await next();
 });
