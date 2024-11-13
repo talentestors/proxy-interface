@@ -27,7 +27,7 @@ export default async function (request) {
         },
       });
       const text = await res.text();
-      console.log("github api res: ", text);
+      console.log("rsshub.app POST res: ", text);
       const params = new URLSearchParams(text);
       const resp = new Response(
         JSON.stringify(
@@ -61,7 +61,7 @@ export default async function (request) {
         },
       });
       const text = await res.text();
-      console.log("github api res: ", text);
+      console.log("rsshub.app GET res: ", text);
       const params = new URLSearchParams(text);
       const resp = new Response(
         JSON.stringify(
