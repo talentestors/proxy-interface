@@ -30,13 +30,13 @@ export default async function (request) {
           "Content-type": "text/html, charset=utf-8, application/json, application/xml, application/rss+xml, application/atom+xml, application/rdf+xml, application/rss, application/atom, application/rdf",
         },
       }).then((res) => res.text());
-      if(res) {
+      if((url == '' || url == '/') && res) {
         // replace example: "/logo.png" to "http://localhost:9999/rsshub/logo.png"
         res = res.replace(/"\/(.*?)"(.*?)/g,`"https://rsshub.netlify.app/$1"$2`);
       }
       return new Response(res, {
         headers: {
-          "content-type": "text/html; charset=utf-8",
+          "Content-type": "text/html, charset=utf-8, application/json, application/xml, application/rss+xml, application/atom+xml, application/rdf+xml, application/rss, application/atom, application/rdf",
         },
       });
     } catch (e) {
