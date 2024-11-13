@@ -31,8 +31,9 @@ export default async function (request) {
           "Content-type": "text/html, charset=utf-8, application/json, application/xml, application/rss+xml, application/atom+xml, application/rdf+xml, application/rss, application/atom, application/rdf",
         },
       });
-      res.data = res.data.replace(/https:\/\/rsshub.app/g, `https://rsshub.netlify.app`);
-      res.data = res.data.replace(/"\/(.*?)"(.*?)/g,`"https://rsshub.netlify.app/$1"$2`);
+      if(url === "" || url === "/"){
+        res.data = res.data.replace(/"\/(.*?)"(.*?)/g, `https://rsshub.netlify.app`);
+      }
       return res;
     } catch (e) {
       console.error(e);
