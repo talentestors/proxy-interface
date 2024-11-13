@@ -19,7 +19,10 @@ export default async function (request) {
 
   if (request.method === "GET") {
     try {
-      const res = await fetch("https://rsshub.app", {
+      const url = new URL(request.url);
+      const newUrl = url.pathname.replace("/rsshub", "");
+      console.log(`Process ${request.method} ${newUrl}...`);
+      const res = await fetch("https://rsshub.app" + newUrl, {
         method: "GET",
         headers: {
           "Content-type": "text/html, charset=utf-8, application/json, application/xml, application/rss+xml, application/atom+xml, application/rdf+xml, application/rss, application/atom, application/rdf",
