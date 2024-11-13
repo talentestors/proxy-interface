@@ -31,7 +31,7 @@ export default async function (request) {
           "Content-type": "text/html, charset=utf-8, application/json, application/xml, application/rss+xml, application/atom+xml, application/rdf+xml, application/rss, application/atom, application/rdf",
         },
       });
-      if(url === "" || url === "/"){
+      if(url === "" || url === "/" || res.data !== undefined) {
         res.data = res.data.replace(/"\/(.*?)"(.*?)/g, `https://rsshub.netlify.app`);
       }
       return res;
