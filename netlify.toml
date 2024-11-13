@@ -9,3 +9,8 @@ function = "github_access_token"
 cache = "manual"
 pattern = "/rsshub/(.*)"
 function = "rsshub"
+
+[[edge_functions]]
+cache = "manual"
+pattern = "/rsshub"
+function = "rsshub"
