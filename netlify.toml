@@ -6,5 +6,6 @@ path = "/github_access_token"
 function = "github_access_token"
 
 [[edge_functions]]
-path = "/rsshub"
+cache = "manual"
+pattern = "/rsshub/(.*)"
 function = "rsshub"
