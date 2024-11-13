@@ -27,7 +27,7 @@ export default async function (request) {
       let res = await fetch("https://rsshub.app" + newUrl, {
         method: "GET",
         headers: {
-          "Content-type": "text/html, charset=utf-8, application/json, application/xml, application/rss+xml, application/atom+xml, application/rdf+xml, application/rss, application/atom, application/rdf",
+          "content-type": "text/html; charset=utf-8",
         },
       }).then((res) => res.text());
       if((url == '' || url == '/') && res) {
@@ -36,7 +36,7 @@ export default async function (request) {
       }
       return new Response(res, {
         headers: {
-          "Content-type": "text/html, charset=utf-8, application/json, application/xml, application/rss+xml, application/atom+xml, application/rdf+xml, application/rss, application/atom, application/rdf",
+          "content-type": "text/html; charset=utf-8",
         },
       });
     } catch (e) {
