@@ -53,12 +53,11 @@ export default async function (request) {
   if (request.method === "GET") {
     try {
       const reqBody = await request.text();
-      console.log("request body: ", reqBody);
       const res = await fetch("https://rsshub.app", {
-        method: "POST",
+        method: "GET",
         body: reqBody,
         headers: {
-          "Content-type": "application/json",
+          "Content-type": "application/html",
         },
       });
       const text = await res.text();
