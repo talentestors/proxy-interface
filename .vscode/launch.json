@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "chrome",
+            "name": "URL",
+            "request": "launch",
+            "url": "http://localhost:9999"
+        }
+    ]
+}

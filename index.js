@@ -1,15 +1,18 @@
-const Koa = require('koa');
-const KoaCors = require('@koa/cors');
-const KoaRouter = require('@koa/router');
-const KoaBodyParser = require('koa-bodyparser');
-const axios = require('axios');
+const Koa = require("koa");
+const KoaCors = require("@koa/cors");
+const KoaRouter = require("@koa/router");
+const KoaBodyParser = require("koa-bodyparser");
+const axios = require("axios");
 
 const app = new Koa();
 const router = new KoaRouter();
 
-router.post('/github_access_token', async (ctx, next) => {
+router.post("/github_access_token", async (ctx, next) => {
   const reqBody = ctx.request.body;
-  const res = await axios.post('https://github.com/login/oauth/access_token', reqBody);
+  const res = await axios.post(
+    "https://github.com/login/oauth/access_token",
+    reqBody
+  );
   const params = new URLSearchParams(res.data);
   ctx.body = Array.from(params.entries()).reduce((obj, [key, value]) => {
     obj[key] = value;
@@ -18,15 +21,23 @@ router.post('/github_access_token', async (ctx, next) => {
   await next();
 });
 
-router.get('/rsshub', async (ctx, next) => {
+router.get(["/rsshub/", /\/rsshub\/.*\.png/], async (ctx, next) => {
   const reqBody = ctx.request.body;
-  const res = await axios.get('https://rsshub.app', reqBody);
+  reqBody.referrer = "no-referrer";
+  const res = await axios.get("https://s21.ax1x.com/2024/11/14/pAgGXW9.png", reqBody)
+  ctx.body = res.data;
+  await next();
+});
+
+router.get(["/rsshub", /\/rsshub\/.*/], async (ctx, next) => {
+  const reqBody = ctx.request.body;
+  const url = ctx.request.url.replace("/rsshub", "");
+  const res = await axios.get("https://rsshub.app" + url, reqBody);
   console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
-  const params = new URLSearchParams(res.data);
-  ctx.body = Array.from(params.entries()).reduce((obj, [key, value]) => {
-    obj[key] = value;
-    return obj;
-  }, {});
+  res.data = res.data.replace(/https:\/\/rsshub.app/g,`http://${ctx.request.host}/rsshub`);
+  // replace example: "/logo.png" to "http://localhost:9999/rsshub/logo.png"
+  res.data = res.data.replace(/"\/(.*?)"(.*?)/g,`"http://${ctx.request.host}/rsshub/$1"$2`);
+  ctx.body = res.data;
   await next();
 });
 
@@ -40,5 +51,5 @@ app.use(KoaBodyParser());
 app.use(router.routes()).use(router.allowedMethods());
 
 app.listen(9999, () => {
-  console.log('cors-server success!');
+  console.log("cors-server success!");
 });
