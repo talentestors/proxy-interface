@@ -21,6 +21,7 @@ router.post('/github_access_token', async (ctx, next) => {
 router.post('/rsshub', async (ctx, next) => {
   const reqBody = ctx.request.body;
   const res = await axios.post('https://rsshub.app', reqBody);
+  console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
   const params = new URLSearchParams(res.data);
   ctx.body = Array.from(params.entries()).reduce((obj, [key, value]) => {
     obj[key] = value;
