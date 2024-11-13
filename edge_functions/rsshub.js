@@ -18,10 +18,8 @@ export default async function (request) {
 
   if (request.method === "GET") {
     try {
-      const reqBody = await request.text();
       const res = await fetch("https://rsshub.app", {
         method: "GET",
-        body: reqBody,
         headers: {
           "Content-type": "text/html",
         },
