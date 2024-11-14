@@ -1,42 +1,44 @@
-# Interface proxy
+# Interface Proxy
 
-这个项目用于接口代理转发。
+Go [zh-CN](docs/README.zh.md)
 
-> 使用技术 `koa + koa router + koa cors + koa bodyparser + axios` 。
-> netlify 边缘函数。
+This project is designed for interface proxy forwarding.
 
-项目基于 <https://github.com/Dedicatus546/cors-server.git> 修改。
+> Technologies used: `koa + koa router + koa cors + koa bodyparser + axios`.
+> Netlify edge functions.
+
+The project is a modification of <https://github.com/Dedicatus546/cors-server.git>.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/dd25daa3-d576-4164-9bb3-f3748a91df81/deploy-status)](https://app.netlify.com/sites/gitalk-stazxr/deploys)
 
-## 已实现功能
+## Implemented Features
 
-- [x] [`github.com/login/oauth/access_token`](#cors-server) 接口转发。
-- [x] [`rsshub.app`](#rsshub) 接口转发。
+- [x] Proxy forwarding for [`github.com/login/oauth/access_token`](#cors-server).
+- [x] Proxy forwarding for [`rsshub.app`](#rsshub).
 
-部署
+### Deployment
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/talentestors/interface-proxy)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/talentestors/proxy-interface)
 
-## cors-server
+## CORS Server
 
-这个项目主要解决国内的 `https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token` 接口被墙导致 `gitalk` 无法获取 `token` 问题。
+This project primarily addresses the issue of the `https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token` interface being blocked in China, which prevents `gitalk` from obtaining the `token`.
 
-借助 `vercel` 部署服务来进行接口转发。
+It utilizes `vercel` deployment services for interface forwarding.
 
-我个人部署了服务，地址为：`https://gitalk-stazxr.netlify.app/` 。
+I have personally deployed the service at: `https://gitalk-stazxr.netlify.app/`.
 
-如果不想折腾，只需把配置下的 `proxy` 改为 `https://gitalk-stazxr.netlify.app/github_access_token` 即可，如下。
+If you prefer not to deal with it yourself, simply change the `proxy` configuration below to `https://gitalk-stazxr.netlify.app/github_access_token`, as shown below.
 
 ![config](https://fastly.jsdelivr.net/gh/Dedicatus546/image@main/2022/07/26/202207261450438.avif)
 
-如果不放心，可以 `fork` 该项目然后自己注册 `vercel` 进行部署。
+If you have concerns, you can `fork` this project and register on `vercel` for your own deployment.
 
-相关帖子：[解决 Gitalk 无法获取 Github Token 问题](https://prohibitorum.top/7cc2c97a15b4.html) 。
+Related post: [Resolving Gitalk's inability to obtain Github Token](https://prohibitorum.top/7cc2c97a15b4.html).
 
-使用技术 `koa + koa router + koa cors + koa bodyparser + axios` 。
+Technologies used: `koa + koa router + koa cors + koa bodyparser + axios`.
 
-### 部署支持
+### Deployment Support
 
 - [x] `vercel`
 - [x] `netlify`
@@ -44,41 +46,41 @@
 
 #### 2022-10-22
 
-目前已支持 `netlify` ，详情请进上面的相关帖子查看即可。
+Currently, `netlify` is supported. For details, please refer to the related post above.
 
-目前我个人部署有两个可用接口：
+I have personally deployed two available interfaces:
 
 - `vercel`: `https://vercel.prohibitorum.top/github_access_token`
 - `netlify`: `https://gitalk-stazxr.netlify.app/github_access_token`
 
 #### 2023-08-13
 
-已支持 Docker 容器方式部署，不过这种方式适合你自己有服务器的情况。
+Docker container deployment is now supported, but this method is suitable for those who have their own servers.
 
-感谢 [@Jorbenzhu](https://github.com/jorben) 提供的 Dockerfile 文件。
+Thanks to [@Jorbenzhu](https://github.com/jorben) for providing the Dockerfile.
 
-镜像已经提交到 DockerHub ，可以使用以下命令来拉取镜像。
+The image has been submitted to DockerHub, and you can pull the image using the following command:
 
 ```bash
 docker pull dedicatus545/github-cors-server:1.0.0
 ```
 
-然后使用以下命令启动镜像
+Then, use the following command to start the image:
 
 ```bash
 docker run -d --name cors-server -p8080:9999 dedicatus545/github-cors-server:1.0.0
 ```
 
-这里容器内部是 `9999` 端口，绑定主机的 `8080` 端口，这里可以根据你的服务器端口占用情况进行动态修改。
+Here, the internal port of the container is `9999`, bound to the host's `8080` port. You can modify this dynamically based on your server's port availability.
 
-## rsshub
+## RSSHub
 
-这个项目主要解决 <rsshub.app> 接口国内无法访问的问题。
+This project primarily addresses the issue of accessing the <rsshub.app> interface in China.
 
-rsshub文档：[rsshub.app](https://docs.rsshub.app/) || [rsshub.app](https://rsshub.netlify.app/)(国内可访问)
+RSSHub documentation: [rsshub.app](https://docs.rsshub.app/) || [rsshub.app](https://rsshub.netlify.app/) (accessible in China).
 
-### 部署支持
+### Deployment Support
 
 - [x] `vercel`
 - [x] `netlify`
-- [ ] `docker` (未知)
+- [ ] `docker` (unknown)
