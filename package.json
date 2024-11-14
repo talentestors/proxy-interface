@@ -16,24 +16,20 @@
     "Netlify"
   ],
   "author": {
-    "name": "Par9uet",
-    "email": "1607611087@qq.com",
-    "url": "https://github.com/Dedicatus546"
+    "name": "talentestors",
+    "email": "talentestors@outlook.com",
+    "url": "https://github.com/talentestors"
   },
   "license": "ISC",
   "dependencies": {
     "@koa/cors": "github:koajs/cors",
-    "@koa/router": "^12.0.0",
-    "axios": "^0.27.2",
-    "koa": "^2.13.4",
-    "koa-bodyparser": "^4.3.0"
+    "@koa/router": "^12.0.2",
+    "axios": "^0.28.1",
+    "koa": "^2.15.3",
+    "koa-bodyparser": "^4.4.1"
   },
   "devDependencies": {
-    "@types/koa": "^2.13.5",
+    "@types/koa": "^2.15.0",
     "@types/koa__router": "^8.0.11"
-  },
-  "packageManager": "pnpm@9.5.0",
-  "engines": {
-    "node": "18.x"
   }
 }
