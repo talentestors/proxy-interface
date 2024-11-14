@@ -24,9 +24,9 @@
 
 借助 `vercel` 部署服务来进行接口转发。
 
-我个人部署了服务，地址为：`https://gitalk-stazxr.netlify.app/` 。
+我个人部署了服务，地址为：`https://stazxr-proxy-interface.netlify.app` 。
 
-如果不想折腾，只需把配置下的 `proxy` 改为 `https://gitalk-stazxr.netlify.app/github_access_token` 即可，如下。
+如果不想折腾，只需把配置下的 `proxy` 改为 `https://stazxr-proxy-interface.netlify.app/github_access_token` 即可，如下。
 
 ![config](https://fastly.jsdelivr.net/gh/Dedicatus546/image@main/2022/07/26/202207261450438.avif)
 
@@ -49,7 +49,7 @@
 目前我个人部署有两个可用接口：
 
 - `vercel`: `https://vercel.prohibitorum.top/github_access_token`
-- `netlify`: `https://gitalk-stazxr.netlify.app/github_access_token`
+- `netlify`: `https://stazxr-proxy-interface.netlify.app/github_access_token`
 
 #### 2023-08-13
 

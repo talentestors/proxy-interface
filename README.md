@@ -1,6 +1,6 @@
 # Interface Proxy
 
-Go [zh-CN](docs/README.zh.md)
+Go [zh-CN](docs/)
 
 This project is designed for interface proxy forwarding.
 
@@ -26,9 +26,9 @@ This project primarily addresses the issue of the `https://cors-anywhere.azm.wor
 
 It utilizes `vercel` deployment services for interface forwarding.
 
-I have personally deployed the service at: `https://gitalk-stazxr.netlify.app/`.
+I have personally deployed the service at: `https://stazxr-proxy-interface.netlify.app/`.
 
-If you prefer not to deal with it yourself, simply change the `proxy` configuration below to `https://gitalk-stazxr.netlify.app/github_access_token`, as shown below.
+If you prefer not to deal with it yourself, simply change the `proxy` configuration below to `https://stazxr-proxy-interface.netlify.app/github_access_token`, as shown below.
 
 ![config](https://fastly.jsdelivr.net/gh/Dedicatus546/image@main/2022/07/26/202207261450438.avif)
 
@@ -51,7 +51,7 @@ Currently, `netlify` is supported. For details, please refer to the related post
 I have personally deployed two available interfaces:
 
 - `vercel`: `https://vercel.prohibitorum.top/github_access_token`
-- `netlify`: `https://gitalk-stazxr.netlify.app/github_access_token`
+- `netlify`: `https://stazxr-proxy-interface.netlify.app/github_access_token`
 
 #### 2023-08-13
 
