@@ -9,3 +9,7 @@ function = "github_access_token"
 cache = "manual"
 pattern = "/rsshub(.*)"
 function = "rsshub"
+
+[[edge_functions]]
+path = "/ai_proxy/*"
+function = "ai_proxy"
