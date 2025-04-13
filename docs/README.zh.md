@@ -1,43 +1,43 @@
-# 接口代理
+# Interface proxy
 
-前往 [zh-CN](docs/)
+这个项目用于接口代理转发。
 
-该项目旨在进行接口代理转发。
+> 使用技术 `koa + koa router + koa cors + koa bodyparser + axios` 。
+> netlify 边缘函数。
 
-> 使用技术：`koa + koa router + koa cors + koa bodyparser + axios`。
-> Netlify 边缘函数。
+项目基于 <https://github.com/Dedicatus546/cors-server.git> 修改。
 
-该项目是对 <https://github.com/Dedicatus546/cors-server.git> 的修改。
+[![Netlify Status](https://api.netlify.com/api/v1/badges/dd25daa3-d576-4164-9bb3-f3748a91df81/deploy-status)](https://app.netlify.com/sites/gitalk-stazxr/deploys)
 
-[![Netlify 状态](https://api.netlify.com/api/v1/badges/dd25daa3-d576-4164-9bb3-f3748a91df81/deploy-status)](https://app.netlify.com/sites/gitalk-stazxr/deploys)
+## 已实现功能
 
-## 实现的功能
-
-- [x] 对 [`github.com/login/oauth/access_token`](#cors-服务器) 的代理转发。
-- [x] 对 [`rsshub.app`](#rsshub) 的代理转发。
+- [x] [`github.com/login/oauth/access_token`](#cors-server) 接口转发。
+- [x] [`rsshub.app`](#rsshub) 接口转发。
 - [x] 对 AI 模型（Grok、OpenAI、Gemini 和 Claude）的代理转发。
 
-### 部署
+部署
 
-[![部署到 Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/talentestors/proxy-interface)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/talentestors/proxy-interface)
 
-## CORS 服务器
+## cors-server
 
-该项目主要解决 `https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token` 接口在中国被屏蔽的问题，这使得 `gitalk` 无法获取 `token`。
+这个项目对 `https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token` 接口转发，解决 `gitalk` 无法获取 `token` 问题。
 
-它利用 `vercel` 部署服务进行接口转发。
+路由：`/github_access_token`
 
-我个人已在以下地址部署了该服务：`https://stazxr-proxy-interface.netlify.app/`。
+借助 `vercel` 部署服务来进行接口转发。
 
-如果您不想自己处理，只需将下面的 `proxy` 配置更改为 `https://stazxr-proxy-interface.netlify.app/github_access_token`，如下所示。
+我个人部署了服务，地址为：`https://stazxr-proxy-interface.netlify.app` 。
 
-![配置](https://fastly.jsdelivr.net/gh/Dedicatus546/image@main/2022/07/26/202207261450438.avif)
+如果不想折腾，只需把配置下的 `proxy` 改为 `https://stazxr-proxy-interface.netlify.app/github_access_token` 即可，如下。
 
-如果您有顾虑，可以 `fork` 该项目并在 `vercel` 上注册以进行自己的部署。
+![config](https://fastly.jsdelivr.net/gh/Dedicatus546/image@main/2022/07/26/202207261450438.avif)
 
-相关帖子：[解决 Gitalk 无法获取 GitHub Token 的问题](https://prohibitorum.top/7cc2c97a15b4.html)。
+如果不放心，可以 `fork` 该项目然后自己注册 `vercel` 进行部署。
 
-使用的技术：`koa + koa router + koa cors + koa bodyparser + axios`。
+相关帖子：[解决 Gitalk 无法获取 Github Token 问题](https://prohibitorum.top/7cc2c97a15b4.html) 。
+
+使用技术 `koa + koa router + koa cors + koa bodyparser + axios` 。
 
 ### 部署支持
 
@@ -47,41 +47,55 @@
 
 #### 2022-10-22
 
-目前支持 `netlify`。有关详细信息，请参见上面的相关帖子。
+目前已支持 `netlify` ，详情请进上面的相关帖子查看即可。
 
-我个人已部署两个可用接口：
+目前我个人部署有两个可用接口：
 
-- `vercel`：`https://vercel.prohibitorum.top/github_access_token`
-- `netlify`：`https://stazxr-proxy-interface.netlify.app/github_access_token`
+- `vercel`: `https://vercel.prohibitorum.top/github_access_token`
+- `netlify`: `https://stazxr-proxy-interface.netlify.app/github_access_token`
 
 #### 2023-08-13
 
-现在支持 Docker 容器部署，但此方法适合拥有自己服务器的用户。
+已支持 Docker 容器方式部署，不过这种方式适合你自己有服务器的情况。
 
-感谢 [@Jorbenzhu](https://github.com/jorben) 提供 Dockerfile。
+感谢 [@Jorbenzhu](https://github.com/jorben) 提供的 Dockerfile 文件。
 
-该镜像已提交至 DockerHub，您可以使用以下命令拉取镜像：
+镜像已经提交到 DockerHub ，可以使用以下命令来拉取镜像。
 
 ```bash
 docker pull dedicatus545/github-cors-server:1.0.0
 ```
 
-然后，使用以下命令启动镜像：
+然后使用以下命令启动镜像
 
 ```bash
 docker run -d --name cors-server -p8080:9999 dedicatus545/github-cors-server:1.0.0
 ```
 
-这里，容器的内部端口为 `9999`，绑定到主机的 `8080` 端口。您可以根据服务器的端口可用性动态修改此设置。
+这里容器内部是 `9999` 端口，绑定主机的 `8080` 端口，这里可以根据你的服务器端口占用情况进行动态修改。
 
-## RSSHub
+## rsshub
 
-该项目主要解决在中国访问 <rsshub.app> 接口的问题。
+这个项目会转发给 <rsshub.app> 。
 
-RSSHub 文档：[rsshub.app](https://docs.rsshub.app/) || [rsshub.app](https://rsshub.netlify.app/)（在中国可访问）。
+路由：`/rsshub`
+
+rsshub文档：[rsshub.app](https://docs.rsshub.app/) || [rsshub.app](https://rsshub.netlify.app/)(国内可访问)
 
 ### 部署支持
 
 - [x] `vercel`
 - [x] `netlify`
-- [ ] `docker`（未知）
+- [ ] `docker` (未知)
+
+## AI 模型
+
+这个项目对 AI 模型接口进行代理转发。
+
+路由：`/ai_proxy`
+
+### 部署支持
+
+- [x] `vercel`
+- [x] `netlify`
+- [ ] `docker` (未知)
