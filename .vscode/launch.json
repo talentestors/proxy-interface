@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Program",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/index.js",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "name": "Launch via NPM",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "run-script",
+        "debug"
+      ],
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    }
+  ]
+}
