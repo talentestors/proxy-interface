@@ -15,6 +15,7 @@ The project is a modification of <https://github.com/Dedicatus546/cors-server.gi
 
 - [x] Proxy forwarding for [`github.com/login/oauth/access_token`](#cors-server).
 - [x] Proxy forwarding for [`rsshub.app`](#rsshub).
+- [x] Proxy forwarding for AI models (Grok, OpenAI, Gemini, and Claude)
 
 ### Deployment
 
