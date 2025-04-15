@@ -13,3 +13,7 @@ function = "rsshub"
 [[edge_functions]]
 path = "/ai_proxy/*"
 function = "ai_proxy"
+
+[[edge_functions]]
+path = "/gemini_proxy/*"
+function = "gemini_proxy"
