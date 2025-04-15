@@ -26,8 +26,7 @@ const createAiProxy = () =>
       if (model?.startsWith("grok")) return API_ENDPOINTS.grok;
       if (model?.startsWith("gemini")) return API_ENDPOINTS.gemini;
       if (model?.startsWith("claude")) return API_ENDPOINTS.claude;
-      if (model?.startsWith("gpt")) return API_ENDPOINTS.openai;
-      return API_ENDPOINTS.grok; // 默认回退
+      return API_ENDPOINTS.openai; // 默认回退
     },
     changeOrigin: true,
     rewrite: (path) => path.replace(/^\/ai_proxy/, ""),
