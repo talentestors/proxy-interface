@@ -35,9 +35,8 @@ const createAiProxy = () =>
       proxyReq: (proxyReq, req) => {
         // 保留客户端原始请求头
         proxyReq.setHeader("Authorization", req.headers.authorization || "");
-
         // 流式请求特殊处理
-        if (req.body?.stream) {
+        if (req.body?.stream || req.url.includes("alt=sse")) {
           proxyReq.setHeader("Accept", "text/event-stream");
           proxyReq.setHeader("Cache-Control", "no-cache");
         }
@@ -59,6 +58,17 @@ const createAiProxy = () =>
 
 // 配置路由
 router.all("/ai_proxy/(.*)", createAiProxy());
+
+// Gemini 反向代理路由
+router.all(
+  "/gemini_proxy/(.*)",
+  proxy("/gemini_proxy", {
+    target: API_ENDPOINTS.gemini,
+    changeOrigin: true,
+    rewrite: (path) => path.replace(/^\/gemini_proxy/, ""),
+    logs: true,
+  })
+);
 
 // GitHub OAuth路由
 router.post("/github_access_token", async (ctx) => {
@@ -124,7 +134,8 @@ app.use(router.allowedMethods());
 const PORT = process.env.PORT || 9999;
 http.createServer(app.callback()).listen(PORT, () => {
   console.log(`Proxy server running on port ${PORT}`);
-  console.log(`Proxy URL: http://localhost:${PORT}/ai_proxy/`);
-  console.log(`RSSHub Proxy URL: http://localhost:${PORT}/rsshub/`);
+  console.log(`Proxy URL: http://localhost:${PORT}/ai_proxy`);
+  console.log(`Gemini Proxy URL: http://localhost:${PORT}/gemini_proxy`);
+  console.log(`RSSHub Proxy URL: http://localhost:${PORT}/rsshub`);
   console.log(`GitHub OAuth URL: http://localhost:${PORT}/github_access_token`);
 });
