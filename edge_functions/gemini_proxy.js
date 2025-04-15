@@ -1,6 +1,6 @@
 /**
  * Gemini 代理边缘函数 - 将请求转发到各大 AI 服务提供商
- * 
+ *
  * @param {Request} request 客户端请求
  * @param {Object} context Netlify 边缘函数上下文
  */
@@ -21,6 +21,7 @@ export default async function (request, context) {
 
   // 构造目标 URL
   const url = new URL(request.url);
+  url.pathname = url.pathname.replace(/^\/gemini_proxy/, "");
   url.host = "generativelanguage.googleapis.com";
   url.protocol = "https:";
 
