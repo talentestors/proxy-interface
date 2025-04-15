@@ -27,7 +27,7 @@ Route: `/github_access_token`
 
 Utilizes `vercel` deployment services for interface forwarding.
 
-I personally deployed the service, and the address is: `https://stazxr-proxy-interface.netlify.app`.
+I deployed the service, and the address is: `https://stazxr-proxy-interface.netlify.app`.
 
 If you don't want to mess around, just change the `proxy` configuration below to `https://stazxr-proxy-interface.netlify.app/github_access_token`, as shown below.
 
@@ -56,23 +56,23 @@ I currently have two available interfaces:
 
 #### 2023-08-13
 
-Docker container deployment is now supported, but this method is suitable if you have your own server.
+Docker container deployment is now supported, but this method is suitable if you have your server.
 
 Thanks to [@Jorbenzhu](https://github.com/jorben) for providing the Dockerfile.
 
 The image has been submitted to DockerHub, and you can use the following command to pull the image.
 
 ```bash
-docker pull dedicatus545/github-cors-server:1.0.0
+docker pull talentestors/github-proxy-interface:main
 ```
 
 Then use the following command to start the image
 
 ```bash
-docker run -d --name cors-server -p8080:9999 dedicatus545/github-cors-server:1.0.0
+docker run -d --name cors-server -p8080:9999 talentestors/github-proxy-interface:main
 ```
 
-Here, the internal port of the container is `9999`, bound to the host's `8080` port. You can dynamically modify this based on your server's port usage.
+Here, the container's internal port is `9999`, bound to the host's `8080` port. You can dynamically modify this based on your server's port usage.
 
 ## rsshub
 
@@ -90,7 +90,7 @@ rsshub documentation: [rsshub.app](https://docs.rsshub.app/) || [rsshub.app](htt
 
 ## AI Models
 
-This project proxies forward the AI model interfaces.
+This project proxies the AI model interfaces.
 
 Route: `/ai_proxy`
 
