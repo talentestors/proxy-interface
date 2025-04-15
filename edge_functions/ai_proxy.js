@@ -56,7 +56,7 @@ export default async function (request, context) {
       if (modelName.startsWith("grok")) targetAPI = API_ENDPOINTS.grok;
       else if (modelName.startsWith("gemini")) targetAPI = API_ENDPOINTS.gemini;
       else if (modelName.startsWith("claude")) targetAPI = API_ENDPOINTS.claude;
-      else if (modelName.startsWith("gpt")) targetAPI = API_ENDPOINTS.openai;
+      else targetAPI = API_ENDPOINTS.openai;
     }
     
     // 构建目标 URL
