@@ -1,18 +1,18 @@
-# Interface Proxy
+# Interface proxy
 
 This project is for interface proxy forwarding.
 
-> Technologies used: `koa + koa router + koa cors + koa bodyparser + axios`.
+> Using technologies `koa + koa router + koa cors + koa bodyparser + axios`.
 > Netlify edge functions.
 
-The project is modified from <https://github.com/Dedicatus546/cors-server.git>.
+The project is modified based on <https://github.com/Dedicatus546/cors-server.git>.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/dd25daa3-d576-4164-9bb3-f3748a91df81/deploy-status)](https://app.netlify.com/sites/gitalk-stazxr/deploys)
 
 ## Implemented Features
 
-- [x] Forwarding of the [`github.com/login/oauth/access_token`](#cors-server) interface.
-- [x] Forwarding of the [`rsshub.app`](#rsshub) interface.
+- [x] Interface forwarding for [`github.com/login/oauth/access_token`](#cors-server).
+- [x] Interface forwarding for [`rsshub.app`](#rsshub).
 - [x] Proxy forwarding for AI models (Grok, OpenAI, Gemini, and Claude).
 
 Deployment
@@ -21,23 +21,23 @@ Deployment
 
 ## cors-server
 
-This project forwards the interface `https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token`, solving the issue of `gitalk` being unable to obtain the `token`.
+This project forwards the interface `https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token`, solving the problem that `gitalk` cannot obtain the `token`.
 
 Route: `/github_access_token`
 
-It uses the `vercel` deployment service for interface forwarding.
+Utilizes `vercel` deployment services for interface forwarding.
 
-I personally deployed the service, accessible at: `https://stazxr-proxy-interface.netlify.app`.
+I personally deployed the service, and the address is: `https://stazxr-proxy-interface.netlify.app`.
 
-If you don't want to deal with it, simply change the `proxy` configuration below to `https://stazxr-proxy-interface.netlify.app/github_access_token`, as shown below.
+If you don't want to mess around, just change the `proxy` configuration below to `https://stazxr-proxy-interface.netlify.app/github_access_token`, as shown below.
 
 ![config](https://fastly.jsdelivr.net/gh/Dedicatus546/image@main/2022/07/26/202207261450438.avif)
 
-If you're concerned, you can `fork` this project and register for `vercel` to deploy it yourself.
+If you're not sure, you can `fork` this project and then register `vercel` for deployment.
 
-Related post: [Resolving Gitalk's inability to obtain Github Token](https://prohibitorum.top/7cc2c97a15b4.html).
+Related post: [Solving the issue of Gitalk not being able to obtain the Github Token](https://prohibitorum.top/7cc2c97a15b4.html).
 
-Technologies used: `koa + koa router + koa cors + koa bodyparser + axios`.
+Using technologies `koa + koa router + koa cors + koa bodyparser + axios`.
 
 ### Deployment Support
 
@@ -47,9 +47,9 @@ Technologies used: `koa + koa router + koa cors + koa bodyparser + axios`.
 
 #### 2022-10-22
 
-Netlify is now supported; please refer to the related post above for details.
+Currently supports `netlify`. For details, please refer to the related post above.
 
-Currently, I have two available interfaces:
+I currently have two available interfaces:
 
 - `vercel`: `https://vercel.prohibitorum.top/github_access_token`
 - `netlify`: `https://stazxr-proxy-interface.netlify.app/github_access_token`
@@ -60,27 +60,27 @@ Docker container deployment is now supported, but this method is suitable if you
 
 Thanks to [@Jorbenzhu](https://github.com/jorben) for providing the Dockerfile.
 
-The image has been submitted to DockerHub; you can pull the image using the following command:
+The image has been submitted to DockerHub, and you can use the following command to pull the image.
 
 ```bash
 docker pull dedicatus545/github-cors-server:1.0.0
 ```
 
-Then use the following command to start the image:
+Then use the following command to start the image
 
 ```bash
 docker run -d --name cors-server -p8080:9999 dedicatus545/github-cors-server:1.0.0
 ```
 
-Here, the internal port of the container is `9999`, bound to the host's port `8080`. You can adjust this based on your server's port availability.
+Here, the internal port of the container is `9999`, bound to the host's `8080` port. You can dynamically modify this based on your server's port usage.
 
 ## rsshub
 
-This project will forward requests to <rsshub.app>.
+This project will forward to <rsshub.app>.
 
 Route: `/rsshub`
 
-Rsshub documentation: [rsshub.app](https://docs.rsshub.app/) || [rsshub.app](https://rsshub.netlify.app/) (accessible in China).
+rsshub documentation: [rsshub.app](https://docs.rsshub.app/) || [rsshub.app](https://rsshub.netlify.app/) (accessible in China)
 
 ### Deployment Support
 
@@ -90,9 +90,11 @@ Rsshub documentation: [rsshub.app](https://docs.rsshub.app/) || [rsshub.app](htt
 
 ## AI Models
 
-This project proxies and forwards requests for AI model interfaces.
+This project proxies forward the AI model interfaces.
 
 Route: `/ai_proxy`
+
+Gemini non-openai compatible interface routing diversion: `gemini_proxy`
 
 ### Deployment Support
 

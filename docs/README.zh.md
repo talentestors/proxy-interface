@@ -94,6 +94,8 @@ rsshub文档：[rsshub.app](https://docs.rsshub.app/) || [rsshub.app](https://rs
 
 路由：`/ai_proxy`
 
+Gemini 非 openai 兼容性接口路由分流：`gemini_proxy`
+
 ### 部署支持
 
 - [x] `vercel`
