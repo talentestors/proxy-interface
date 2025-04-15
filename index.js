@@ -3,6 +3,7 @@ const KoaCors = require("@koa/cors");
 const KoaRouter = require("@koa/router");
 const proxy = require("koa-proxies");
 const http = require("http");
+const axios = require("axios");
 
 const app = new Koa();
 const router = new KoaRouter();
@@ -18,9 +19,8 @@ const API_ENDPOINTS = {
 // 修改动态代理中间件的创建方式，使用 router 动态匹配目标 URL
 const createAiProxy = () =>
   proxy("/ai_proxy", {
-    // 设置默认值，日志中会使用这个默认 URL
-    target: API_ENDPOINTS.grok,
-    // 使用 router 根据请求动态选择 URL
+    target: API_ENDPOINTS.openai,
+    // router 支持函数，动态返回目标
     router: (req) => {
       const model = req.body?.model || req.query.model;
       if (model?.startsWith("grok")) return API_ENDPOINTS.grok;
