@@ -12,6 +12,8 @@
     "Proxy Server",
     "Cors",
     "Github Access Token Api",
+    "Rsshub",
+    "Gemini",
     "Vercel",
     "Netlify"
   ],
@@ -27,8 +29,7 @@
     "axios": "^0.30.0",
     "koa": "^2.16.1",
     "koa-bodyparser": "^4.4.1",
-    "koa-proxies": "^0.12.4",
-    "koa2-connect": "^1.0.2"
+    "koa-proxies": "^0.12.4"
   },
   "devDependencies": {
     "@types/koa": "^2.15.0",

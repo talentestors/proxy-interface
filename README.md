@@ -13,7 +13,7 @@ The project is modified based on <https://github.com/Dedicatus546/cors-server.gi
 
 - [x] Interface forwarding for [`github.com/login/oauth/access_token`](#cors-server).
 - [x] Interface forwarding for [`rsshub.app`](#rsshub).
-- [x] Proxy forwarding for AI models (Grok, OpenAI, Gemini, and Claude).
+- [x] Interface forwarding for [`ai models`](#ai-models).
 
 Deployment
 
@@ -86,18 +86,14 @@ rsshub documentation: [rsshub.app](https://docs.rsshub.app/) || [rsshub.app](htt
 
 - [x] `vercel`
 - [x] `netlify`
-- [ ] `docker` (unknown)
+- [ ] `docker`
 
 ## AI Models
 
-This project proxies the AI model interfaces.
-
-Route: `/ai_proxy`
-
-Gemini non-openai compatible interface routing diversion: `gemini_proxy`
+Gemini non-openai compatible interface routing: `/gemini_proxy`
 
 ### Deployment Support
 
 - [x] `vercel`
 - [x] `netlify`
-- [ ] `docker` (unknown)
+- [ ] `docker`

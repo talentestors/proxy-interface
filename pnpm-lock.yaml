@@ -26,9 +26,6 @@ importers:
       koa-proxies:
         specifier: ^0.12.4
         version: 0.12.4(koa@2.16.1)
-      koa2-connect:
-        specifier: ^1.0.2
-        version: 1.0.2
     devDependencies:
       '@types/koa':
         specifier: ^2.15.0
@@ -336,10 +333,6 @@ packages:
     resolution: {integrity: sha512-xxrEtN0e7s7/gNRoOMUltCbuIaCWqTQUTZNWQqet/8MoxSW0hG422lx2Al9FfYO3nCeA+b5c5/YmILRzavivDA==}
     peerDependencies:
       koa: '>=2'
-
-  koa2-connect@1.0.2:
-    resolution: {integrity: sha512-Subc/t9vJaMtorZ/Z/yqjRaZZ4RQ8ew+aacQhYXzL6oVuaYaUGqhh3UMRB5gcpu7t9hu1QBwbJezHohLNohr3g==}
-    engines: {node: '>=4'}
 
   koa@2.16.1:
     resolution: {integrity: sha512-umfX9d3iuSxTQP4pnzLOz0HKnPg0FaUUIKcye2lOiz3KPu1Y3M3xlz76dISdFPQs37P9eJz1wUpcTS6KDPn9fA==}
@@ -801,8 +794,6 @@ snapshots:
       uuid: 8.3.2
     transitivePeerDependencies:
       - debug
-
-  koa2-connect@1.0.2: {}
 
   koa@2.16.1:
     dependencies:

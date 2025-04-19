@@ -13,7 +13,7 @@
 
 - [x] [`github.com/login/oauth/access_token`](#cors-server) 接口转发。
 - [x] [`rsshub.app`](#rsshub) 接口转发。
-- [x] 对 AI 模型（Grok、OpenAI、Gemini 和 Claude）的代理转发。
+- [x] [`AI 模型`](#ai-模型) 接口转发。
 
 部署
 
@@ -86,18 +86,14 @@ rsshub文档：[rsshub.app](https://docs.rsshub.app/) || [rsshub.app](https://rs
 
 - [x] `vercel`
 - [x] `netlify`
-- [ ] `docker` (未知)
+- [ ] `docker`
 
 ## AI 模型
 
-这个项目对 AI 模型接口进行代理转发。
-
-路由：`/ai_proxy`
-
-Gemini 非 openai 兼容性接口路由分流：`gemini_proxy`
+Gemini 非 openai 兼容性接口路由：`/gemini_proxy`
 
 ### 部署支持
 
 - [x] `vercel`
 - [x] `netlify`
-- [ ] `docker` (未知)
+- [ ] `docker`
