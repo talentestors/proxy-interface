@@ -30,9 +30,12 @@ export default async function (request) {
           "content-type": "text/html; charset=utf-8",
         },
       }).then((res) => res.text());
-      if((url == '/' || newUrl == '') && res) {
-        // replace example: "/logo.png" to "https://rsshub.netlify.app/logo.png"
-        res = res.replace(/"\/(.*?)"(.*?)/g,`"https://rsshub.netlify.app/$1"$2`);
+      if ((url == "/" || newUrl == "") && res) {
+        // replace example: "./logo.png" || "/logo.png" to "https://rsshub.netlify.app/logo.png"
+        res = res.replace(
+          /(src=['"])(\.\/|\/)?(logo\.png)(['"])/g,
+          `$1https://rsshub.netlify.app/$3$4`
+        );
       }
       return new Response(res, {
         headers: {

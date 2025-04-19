@@ -52,7 +52,7 @@ router.get(["/rsshub", /\/rsshub\/.*/], async (ctx, next) => {
     /https:\/\/rsshub.app/g,
     `https://rsshub.netlify.app`
   );
-  // replace example: "./logo.png" || "/logo.png" to "./rsshub/logo.png"
+  // replace example: "./logo.png" || "/logo.png" to "https://rsshub.netlify.app/logo.png"
   res.data = res.data.replace(
     /(src=['"])(\.\/|\/)?(logo\.png)(['"])/g,
     `$1https://rsshub.netlify.app/$3$4`
