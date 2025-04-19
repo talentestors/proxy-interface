@@ -52,10 +52,10 @@ router.get(["/rsshub", /\/rsshub\/.*/], async (ctx, next) => {
     /https:\/\/rsshub.app/g,
     `https://rsshub.netlify.app`
   );
-  // replace example: "/logo.png" to "http://localhost:9999/rsshub/logo.png"
+  // replace example: "./logo.png" || "/logo.png" to "./rsshub/logo.png"
   res.data = res.data.replace(
-    /"\/(.*?)"(.*?)/g,
-    `"https://rsshub.netlify.app/$1"$2`
+    /(src=['"])(\.\/|\/)?(logo\.png)(['"])/g,
+    `$1https://rsshub.netlify.app/$3$4`
   );
   ctx.body = res.data;
   await next();
@@ -87,7 +87,6 @@ app.use(router.allowedMethods());
 const PORT = process.env.PORT || 9999;
 app.listen(PORT, () => {
   console.log(`Proxy server running on port ${PORT}`);
-  console.log(`Proxy URL: http://localhost:${PORT}/ai_proxy`);
   console.log(`Gemini Proxy URL: http://localhost:${PORT}/gemini_proxy`);
   console.log(`RSSHub Proxy URL: http://localhost:${PORT}/rsshub`);
   console.log(`GitHub OAuth URL: http://localhost:${PORT}/github_access_token`);
