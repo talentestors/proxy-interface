@@ -1,5 +1,7 @@
 # Interface proxy
 
+[English](../README.md) | 简体中文
+
 这个项目用于接口代理转发。
 
 > 使用技术 `koa + koa router + koa cors + koa bodyparser + axios` 。

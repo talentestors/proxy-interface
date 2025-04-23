@@ -1,5 +1,7 @@
 # Interface proxy
 
+English | [简体中文](./docs/README.zh.md)
+
 This project is for interface proxy forwarding.
 
 > Using technologies `koa + koa router + koa cors + koa bodyparser + axios`.
@@ -17,7 +19,7 @@ The project is modified based on <https://github.com/Dedicatus546/cors-server.gi
 
 Deployment
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/talentestors/proxy-interface) [【简体中文】](./docs/README.zh.md)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/talentestors/proxy-interface)
 
 ## cors-server
 
