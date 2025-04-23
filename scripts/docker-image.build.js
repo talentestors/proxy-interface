@@ -13,7 +13,7 @@ const { version } = JSON.parse(
 );
 
 // 如果需要推送自己构建的镜像，请修改为自己的用户名
-const DOCKER_USERNAME = "dedicatus545";
+const DOCKER_USERNAME = "talentestors";
 const DOCKER_IMAGE_TAG = `${DOCKER_USERNAME}/github-cors-server:${version}`;
 
 /**

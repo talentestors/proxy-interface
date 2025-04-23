@@ -91,6 +91,9 @@ rsshub documentation: [rsshub.app](https://docs.rsshub.app/) || [rsshub.app](htt
 ## AI Models
 
 Gemini non-openai compatible interface routing: `/gemini_proxy`
+OpenAI routing: `/openai`  
+Grok routing: `/grok`  
+Claude routing: `/claude_proxy`
 
 ### Deployment Support
 
