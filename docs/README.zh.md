@@ -90,10 +90,10 @@ rsshub文档：[rsshub.app](https://docs.rsshub.app/) || [rsshub.app](https://rs
 
 ## AI 模型
 
-Gemini 非 openai 兼容性接口路由：`/gemini_proxy`
-OpenAI 路由：`/openai`
-Grok 路由：`/grok`
-Claude 路由：`/claude_proxy`
+- Gemini 非 openai 兼容性接口路由：`/gemini_proxy`
+- OpenAI 路由：`/openai`
+- Grok 路由：`/grok`
+- Claude 路由：`/claude_proxy`
 
 ### 部署支持
 

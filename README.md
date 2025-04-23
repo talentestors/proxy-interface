@@ -17,7 +17,7 @@ The project is modified based on <https://github.com/Dedicatus546/cors-server.gi
 
 Deployment
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/talentestors/proxy-interface)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/talentestors/proxy-interface) [【简体中文】](./docs/README.zh.md)
 
 ## cors-server
 
@@ -90,10 +90,10 @@ rsshub documentation: [rsshub.app](https://docs.rsshub.app/) || [rsshub.app](htt
 
 ## AI Models
 
-Gemini non-openai compatible interface routing: `/gemini_proxy`
-OpenAI routing: `/openai`  
-Grok routing: `/grok`  
-Claude routing: `/claude_proxy`
+- Gemini non-openai compatible interface routing: `/gemini_proxy`
+- OpenAI routing: `/openai`  
+- Grok routing: `/grok`  
+- Claude routing: `/claude_proxy`
 
 ### Deployment Support
 
