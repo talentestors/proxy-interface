@@ -13,3 +13,11 @@ function = "rsshub"
 [[edge_functions]]
 path = "/gemini_proxy/*"
 function = "gemini_proxy"
+
+[[edge_functions]]
+path = "/openai/*"
+function = "openai"
+
+[[edge_functions]]
+path = "/grok/*"
+function = "grok"
