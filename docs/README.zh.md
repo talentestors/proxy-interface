@@ -65,13 +65,13 @@
 镜像已经提交到 DockerHub ，可以使用以下命令来拉取镜像。
 
 ```bash
-docker pull talentestors/github-proxy-interface:main
+docker pull talentestors/github-proxy-interface:latest
 ```
 
 然后使用以下命令启动镜像
 
 ```bash
-docker run -d --name cors-server -p8080:9999 talentestors/github-proxy-interface:main
+docker run -d --name cors-server -p8080:9999 talentestors/github-proxy-interface:latest
 ```
 
 这里容器内部是 `9999` 端口，绑定主机的 `8080` 端口，这里可以根据你的服务器端口占用情况进行动态修改。
