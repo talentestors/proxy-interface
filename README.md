@@ -65,13 +65,13 @@ Thanks to [@Jorbenzhu](https://github.com/jorben) for providing the Dockerfile.
 The image has been submitted to DockerHub, and you can use the following command to pull the image.
 
 ```bash
-docker pull talentestors/github-proxy-interface:main
+docker pull talentestors/github-proxy-interface:latest
 ```
 
 Then use the following command to start the image
 
 ```bash
-docker run -d --name cors-server -p8080:9999 talentestors/github-proxy-interface:main
+docker run -d --name cors-server -p8080:9999 talentestors/github-proxy-interface:latest
 ```
 
 Here, the container's internal port is `9999`, bound to the host's `8080` port. You can dynamically modify this based on your server's port usage.
