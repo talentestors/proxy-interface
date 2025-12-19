@@ -13,7 +13,7 @@ importers:
         version: https://codeload.github.com/koajs/cors/tar.gz/18a43f0e66cab2f46d50e8500cafc13930aad68e
       '@koa/router':
         specifier: ^15.0.0
-        version: 15.1.0(koa@3.1.1)
+        version: 15.1.1(koa@3.1.1)
       axios:
         specifier: ^1.0.0
         version: 1.13.2
@@ -44,8 +44,8 @@ packages:
     version: 5.0.0
     engines: {node: '>= 14.0.0'}
 
-  '@koa/router@15.1.0':
-    resolution: {integrity: sha512-0zCmuapmgBHrfVSFjBfCdgnkBnXwRGcG5qHnxVs8ZoTNEJiwSSspgJ5+2NugiqLJS/S0d96KMeNntLqTNWaioQ==}
+  '@koa/router@15.1.1':
+    resolution: {integrity: sha512-trYxL4VOx8r92f8luqpN83xkN0DMTsp/HBJIxoDZH/a2I1Hxvoe+jjjhyJRQUQIHmsNQjCM+Xj6nCqSvnDnlCw==}
     engines: {node: '>= 20'}
     peerDependencies:
       koa: ^2.0.0 || ^3.0.0
@@ -471,7 +471,7 @@ snapshots:
     dependencies:
       vary: 1.1.2
 
-  '@koa/router@15.1.0(koa@3.1.1)':
+  '@koa/router@15.1.1(koa@3.1.1)':
     dependencies:
       debug: 4.4.3
       http-errors: 2.0.1
